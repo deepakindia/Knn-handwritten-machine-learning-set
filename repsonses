@@ -1,0 +1,249 @@
+----------------------------QUESTION 1-------------------------------------------
+
+a) Which classifier performs the best in this task?
+Deepak: KNN performs better than CNN as per the results
+
+b) Why do you think the underperforming classifiers are doing more poorly?
+we find that Architecture that is used to  build CNN  has dependency that includes the No of layers and the type of operation that we perform
+In the current Model that we have built we have just one layer that is provided as an input where we have initilized it 
+the filter of 5, each size 3X3 and used the Non linearity function Relu and flatten the array and specified softmax that 
+is used for Mutliclass classification compiled the model
+
+I see that we can improve the model by increasing the layers and epochs helps in exploring the features 
+that results in flexibilty 
+and changes in weights(Note:Overfitting can be risk here) However this  improves the accuracy
+Note:Every dataset needs a certain fixed No layers that is mandatory for building efficent model which is 
+shown/answered in question 4    
+
+Citations:
+https://stats.stackexchange.com/questions/182102/what-do-the-fully-connected-layers-do-in-cnns
+LOSS ACCURACY AND ERROR OF MEAN CNN MODEL FOR K FOLD VALUE 5
+
+LOSS ACCURACY AND ERROR MEAN OF CNN MODEL FOR K FOLD VALUE 5
+0.026171529615173737
+ACCURACY
+0.8310000181198121
+ERROR
+0.168999981880188
+
+#########KNN ERROR FOR K=1##############
+0.0377
+#########KNN ACCURACY FOR K=1##############
+0.9622999999999999
+#########KNN ERROR FOR K=5##############
+0.0388
+#########KNN ACCURACY FOR K=5##############
+0.9612
+#########KNN ERROR FOR K=10##############
+0.04303333333333333
+#########KNN ACCURACY FOR K=10##############
+0.9569666666666666
+
+-------------------------Question Two------------------------------
+-------------------------------------------------------------------
+#The following dataset is taken from#https://archive.ics.uci.edu/ml/datasets/User+Knowledge+Modeling
+
+I have slected the dataset as description mentions that its suitable to expirement for
+k-nearest neighbor algorithm
+ 
+Name:User Knowledge Modeling Data Set
+Data Set Characteristics:  Multivariate 
+Number of Attributes: 5
+Number of Instances: 403
+Associated Tasks: Classification, Clustering
+
+The follwing is the measurement of the dataset:
+
+STG (The degree of study time for goal object materails), (input value)
+SCG (The degree of repetition number of user for goal object materails) (input value)
+STR (The degree of study time of user for related objects with goal object) (input value)
+LPR (The exam performance of user for related objects with goal object) (input value)
+PEG (The exam performance of user for goal objects) (input value)
+UNS (The knowledge level of user) (target value)
+
+Group of interest is Very low and low 
+Very Low
+Low
+
+Group of not of interest as Middle and High 
+Middle
+High
+
+Dimension of sample of interest
+2
+Size of sample of interest
+151
+Dimension of sample of interest
+2
+Size of sample of interest
+107
+Finding the cohen's D for the measurement for sample 0
+STG
+sorted
+[0.4437628259808276]
+Finding the cohen's D for the measurement for sample 1
+SCG
+sorted
+[0.4089620481172357, 0.4437628259808276]
+Finding the cohen's D for the measurement for sample 2
+STR
+sorted
+[0.364551960062531, 0.4089620481172357, 0.4437628259808276]
+Finding the cohen's D for the measurement for sample 3
+LPR
+sorted
+[-0.23209798487047656, 0.364551960062531, 0.4089620481172357, 0.4437628259808276]
+Finding the cohen's D for the measurement for sample 4
+PEG
+sorted
+[-0.23209798487047656, 0.364551960062531, 0.4089620481172357, 0.4437628259808276, 3.1160999981141937]
+###########################################################################
+###########################################################################
+###########################################################################
+
+---------------------Question Three------------------------------
+LOSS AND ACCURACY OF ANN MODEL FOR K FOLD VALUE 5
+
+Comparsion between increasing the Layers from 3 to 1
+when Layer is 3
+LOSS
+1.2979057495410626
+ACCURACY
+0.3461538553237915
+ERROR
+0.6538461446762085
+-----------------------------------
+when we add layer 1
+LOSS
+1.2921608301309437
+ACCURACY
+0.3500000059604645
+ERROR
+0.6499999940395356 
+
+
+#########KNN ERROR FOR K=1##############
+0.21153846153846154
+#########KNN ACCURACY FOR K=1##############
+0.7884615384615385
+#########KNN ERROR FOR K=5##############
+0.21153846153846154
+#########KNN ACCURACY FOR K=5##############
+0.7884615384615384
+#########KNN ERROR FOR K=10##############
+0.19615384615384615
+#########KNN ACCURACY FOR K=10##############
+0.8038461538461537
+
+
+Conversion of DataFrom Numberbigger.mat
+I find KNN Classifiers are peforming well on the datset that is chosen
+KNN works better in current scenerio as Dataset is smaller and ANN has the capacity so that it can handle Large Dataset 
+The problem here is with the dataset that is chosen has very few samples for training and its inefficent when applied  
+to highly efficent models like ANN 
+
+However I training the ANN model I am  using the 3 hidden layers and each layer has 18 Nodes and input dimension is 
+22 and applying the relu for all the layers and output layer is of 4 classes and has activation function softmax 
+used for classification 
+I have changed the No of layers to one so that it forms Basic model but find the accuracy does not increase in my dataset
+w.r.t to KNN   
+
+ 
+#########################QUESTION 4####################################
+
+Question -4
+I see that model is trained with 3 convolution layers and input dimension filter provided is 64 for 
+First layers and 32 for 2nd layer and Max Pooling is applied which takes the max values of the array
+that reduces the dimension and again convoluted with 32 filter and reduced the dimension and the applied
+to output of 1 dense layers with softmax activation that is used for classification and flattened model
+is fitted with the training data my_train_data_u_x,and label my_train_label_u_x 
+and output is predicted 
+
+#######################################################################
+BASIC MODEL CNN 
+LOSS ACCURACY AND ERROR MEAN OF CNN MODEL FOR K FOLD VALUE 5
+0.026171529615173737
+ACCURACY
+0.8310000181198121
+*ERROR
+0.168999981880188
+
+citations
+https://medium.com/datadriveninvestor/k-fold-and-other-cross-validation-techniques-6c03a2563f1e
+
+Applying the K fold validation I was able to get the results or accuracy more consistently
+and it helps in training the model better by tetsing every dataset excatly once and training k-1 
+I have noticed that with each K computations the model predicted well by increasing the acuuracy and 
+error rate was reduced and improvised 
+K=1 1.4 % error
+K=2 1.2 % error
+K=3 1.0 % error
+K=4 0.8 % error
+K=5 1.2 % error
+which shows Kfold validation trains the model better decresing the error by 0.2% for eack run till K value 4
+
+************************Without applying the K fold straitified cross validation********************************
+As explained in Question 1 increasing no of layers epoch and activation function results in flexibitily
+for the dataset for feature extraction
+when compared to first model error rates as below we have achieved a better values of accuracy  
+we are able to get the error of 0.6 % by building the efficent model
+
+Note:submitted the csv file for the same
+No of epoch =15
+################################################################################
+DEREK:
+Successfully generated `predictions.csv` from your model!
+
+GREAT!
+Your estimated misclassification rate (0.6%) is between 0.5% and 1.0%.
+That's really good! It is possible (but very tricky) to go lower though!
+Don't forget though: this is just an estimate of your final error rate.
+
+NOTE:
+The misclassification rate above is just an *estimate* based on 500 samples
+of the total 5000 your model will be actually tested on. So your actual test
+performance could be higher, could be lower. In particular, be very suspicious
+if you build a model that seems to perform extremely well on this sample of
+the test set, but performs very poorly on your cross-validation of the
+`NumberRecognitionBigger.mat` data. Those results probably won't generalize
+to the full test set.
+        
+################################################################################
+******************************with running K fold straitified cross-validation 5 layers*************************
+I was able to  accuracy of 0.8
+No of epoch =5 at k fold value 3
+
+LOSS
+0.026585437641971948
+ACCURACY
+0.9919666647911072
+ERROR
+0.008033335208892822
+
+DEREK:
+Successfully generated `predictions.csv` from your model!
+
+GREAT!
+Your estimated misclassification rate (0.8%) is between 0.5% and 1.0%.
+That's really good! It is possible (but very tricky) to go lower though!
+Don't forget though: this is just an estimate of your final error rate.
+
+
+NOTE:
+The misclassification rate above is just an *estimate* based on 500 samples
+of the total 5000 your model will be actually tested on. So your actual test
+performance could be higher, could be lower. In particular, be very suspicious
+if you build a model that seems to perform extremely well on this sample of
+the test set, but performs very poorly on your cross-validation of the
+`NumberRecognitionBigger.mat` data. Those results probably won't generalize
+to the full test set.
+       
+*************************************************************************************
+
+Note :I wanted to try same model with epoch 15 with k fold 
+but found that due to system performamce was not able to do it
+
+ 
+
+
+
